@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Folder from "../src/components/Folder";
+import "./App.css";
+
+const data = {
+  Documents: ["Document1.jpg", "Document2.jpg", "Document3.jpg"],
+  Desktop: ["Screenshot1.jpg", "videopal.mp4"],
+  Downloads: {
+    Drivers: ["Printerdriver.dmg", "cameradriver.dmg"],
+  },
+  Applications: [
+    "Webstorm.dmg",
+    "Pycharm.dmg",
+    "FileZilla.dmg",
+    "Mattermost.dmg",
+    "chromedriver.dmg",
+  ],
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>File Manager</h1>
+      <Folder name="Documents" items={data.Documents} />
+      <Folder name="Desktop" items={data.Desktop} />
+      <Folder name="Downloads" items={data.Downloads} />
+      <Folder name="Applications" items={data.Applications} />
     </div>
   );
 }
